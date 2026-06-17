@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - MD. Ashraful Islam Anas</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #EEF2FF, #FDF2F8);
+            color: #111827;
+        }
+
+        header {
+            position: relative;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        /* ⚙️ SETTINGS ICON */
+        .settings-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 22px;
+            color: #111827;
+            cursor: pointer;
+        }
+
+        /* ⚙️ SETTINGS PANEL */
+        .settings-panel {
+            position: absolute;
+            top: 70px;
+            right: 20px;
+            background: #FFFFFF;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        nav {
+            background: #FFFFFF;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        }
+
+        nav a {
+            color: #111827;
+            margin: 0 20px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            color: #8B5CF6;
+        }
+
+        section {
+            display: none;
+            padding: 30px;
+            max-width: 1000px;
+            margin: 30px auto;
+            background: #FFFFFF;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        section.active {
+            display: block;
+        }
+
+        /* ✅ PURPLE TITLES */
+        h2 {
+            color: #8B5CF6;
+            margin-bottom: 15px;
+            border-left: 5px solid #8B5CF6;
+            padding-left: 10px;
+        }
+
+        ul li {
+            background: #F9FAFB;
+            margin: 8px 0;
+            padding: 12px;
+            border-left: 5px solid #8B5CF6;
+            border-radius: 6px;
+        }
+
+        footer {
+            background: #FFFFFF;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        /* 🌙 DARK MODE */
+        body.dark {
+            background: linear-gradient(to right, #0B1120, #1F1B3A);
+            color: #EDE9FE;
+        }
+
+        body.dark section {
+            background: #1F1B3A;
+        }
+
+        body.dark nav {
+            background: #1F1B3A;
+        }
+
+        body.dark ul li {
+            background: #0B1120;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>MD. Ashraful Islam Anas</h1>
+        <p>Computer Science and Engineering Student</p>
+
+        <!-- ⚙️ SETTINGS ICON -->
+        <i class="fas fa-cog settings-icon" onclick="toggleSettings()"></i>
+
+        <!-- ⚙️ SETTINGS PANEL -->
+        <div id="settingsPanel" class="settings-panel">
+            <label>
+                <input type="checkbox" onchange="toggleDarkMode()"> Dark Mode
+            </label>
+        </div>
+    </header>
+
+    <nav>
+        <a onclick="showSection('intro')">Introduction</a>
+        <a onclick="showSection('education')">Education</a>
+        <a onclick="showSection('experience')">Experience</a>
+        <a onclick="showSection('skills')">Skills</a>
+        <a onclick="showSection('awards')">Awards</a>
+    </nav>
+
+    <section id="intro" class="active">
+        <h2>Introduction</h2>
+        <p>
+            Hello! I am MD. Ashraful Islam Anas, a Computer Science and Engineering student at Green University of
+            Bangladesh. I have a strong interest in web development, programming, and problem-solving. I enjoy building
+            projects that help me improve my skills and explore new technologies. Currently, I am focusing on developing
+            my knowledge in software development, databases, and modern web technologies. I actively participate in
+            coding contests and continuously work on improving my logical thinking and programming abilities. My goal is
+            to become a skilled software developer and contribute to innovative and impactful technological solutions.
+        </p>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <ul>
+            <li>B.Sc. in CSE at Green University of Bangladesh</li>
+            <li>HSC (2025) - Sonargaon Govt. College</li>
+            <li>SSC (2022) - Sonargaon G.R. Institution</li>
+        </ul>
+    </section>
+
+    <section id="experience">
+        <h2>Experience</h2>
+        <ul>
+            <li>Worked on web development projects</li>
+            <li>Participated in coding contests</li>
+            <li>Worked on AI & ML assignments</li>
+        </ul>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>C, C++, Java, Python</li>
+            <li>HTML, CSS, JavaScript</li>
+            <li>MySQL, MongoDB</li>
+            <li>Git, Linux, VS Code</li>
+        </ul>
+    </section>
+
+    <section id="awards">
+        <h2>Awards</h2>
+        <ul>
+            <li>University Coding Contest – Runner-up</li>
+            <li>Google Cloud Certification</li>
+            <li>Academic Excellence Awards</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>Contact: superstar92292@gmail.com</p>
+    </footer>
+
+    <script>
+        function showSection(id) {
+            let sections = document.querySelectorAll("section");
+            sections.forEach(section => section.classList.remove("active"));
+            document.getElementById(id).classList.add("active");
+        }
+
+        function toggleSettings() {
+            let panel = document.getElementById("settingsPanel");
+            panel.style.display = panel.style.display === "block" ? "none" : "block";
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark");
+        }
+    </script>
+
+</body>
+
+</html>
