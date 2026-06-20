@@ -20,6 +20,7 @@
             background: #0f172a;
             color: #111827;
             overflow-x: hidden;
+            min-height: 100vh;
         }
 
         /* ===== AURORA BACKGROUND ===== */
@@ -35,10 +36,7 @@
                     rgba(236,72,153,.3)
                 );
             filter: blur(80px);
-
-            /* 🔥 slower animation (25s) */
             animation: aurora 25s ease infinite alternate;
-
             z-index: -1;
         }
 
@@ -116,11 +114,17 @@
             border-radius: 6px;
         }
 
+        /* ===== FIXED FOOTER ===== */
         footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
             background: #FFFFFF;
             text-align: center;
-            padding: 20px;
-            margin-top: 40px;
+            padding: 15px;
+            box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.08);
+            z-index: 10;
         }
     </style>
 </head>
@@ -144,7 +148,6 @@
         <h2>Introduction</h2>
         <p>
             Hello! I am Md. Ashraful Islam Anas, a Computer Science and Engineering student at Green University of Bangladesh.
-            I have a strong interest in web development, programming, and problem-solving.
         </p>
     </section>
 
