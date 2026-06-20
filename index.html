@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,50 +18,22 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #EEF2FF, #FDF2F8);
             color: #111827;
-            background: #0f172a;
             overflow-x: hidden;
-        }
-
-        /* ===== Aurora Animated Background ===== */
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            background:
-                linear-gradient(
-                    120deg,
-                    rgba(139,92,246,.35),
-                    rgba(59,130,246,.35),
-                    rgba(236,72,153,.30)
-                );
-            filter: blur(80px);
-            animation: aurora 12s ease infinite alternate;
-            z-index: -1;
-        }
-
-        @keyframes aurora {
-            from {
-                transform: translateX(-10%) rotate(0deg);
-            }
-            to {
-                transform: translateX(10%) rotate(10deg);
-            }
         }
 
         header {
             position: relative;
             padding: 40px 0;
             text-align: center;
-            color: #ffffff;
         }
 
         nav {
-            background: rgba(255, 255, 255, 0.95);
+            background: #FFFFFF;
             padding: 15px;
             text-align: center;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-            backdrop-filter: blur(10px);
         }
 
         nav a {
@@ -75,19 +48,30 @@
             color: #8B5CF6;
         }
 
+        /* ===== FIXED SECTION LAYOUT (NO GAP) ===== */
         section {
-            display: none;
-            padding: 30px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%) translateY(30px);
+
+            width: 100%;
             max-width: 1000px;
-            margin: 30px auto;
-            background: rgba(255, 255, 255, 0.92);
+
+            padding: 30px;
+            background: #FFFFFF;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-            backdrop-filter: blur(6px);
+
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.4s ease;
         }
 
         section.active {
-            display: block;
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+            pointer-events: auto;
+            position: relative;
         }
 
         h2 {
@@ -106,11 +90,10 @@
         }
 
         footer {
-            background: rgba(255, 255, 255, 0.95);
+            background: #FFFFFF;
             text-align: center;
             padding: 20px;
             margin-top: 40px;
-            backdrop-filter: blur(10px);
         }
     </style>
 </head>
@@ -133,8 +116,7 @@
     <section id="intro" class="active">
         <h2>Introduction</h2>
         <p>
-            Hello! I am Md. Ashraful Islam Anas, a Computer Science and Engineering student at Green University of
-            Bangladesh. I have a strong interest in web development, programming, and problem-solving.
+            Hello! I am Md. Ashraful Islam Anas, a Computer Science and Engineering student at Green University of Bangladesh. I have a strong interest in web development, programming, and problem-solving.
         </p>
     </section>
 
@@ -182,7 +164,11 @@
     <script>
         function showSection(id) {
             let sections = document.querySelectorAll("section");
-            sections.forEach(section => section.classList.remove("active"));
+
+            sections.forEach(section => {
+                section.classList.remove("active");
+            });
+
             document.getElementById(id).classList.add("active");
         }
     </script>
