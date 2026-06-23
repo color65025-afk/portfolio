@@ -40,14 +40,6 @@
             padding: 40px 0;
         }
 
-        header h1 {
-            color: #1F2937;
-        }
-
-        header p {
-            color: #374151;
-        }
-
         nav {
             margin: 0 auto 20px;
             width: 90%;
@@ -113,6 +105,20 @@
             padding-left: 10px;
         }
 
+        /* CENTER HOME TEXT */
+        #home {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        #home h2 {
+            border: none;
+            padding-left: 0;
+            font-size: 28px;
+        }
+
         section p {
             margin-bottom: 15px;
             line-height: 1.6;
@@ -153,6 +159,7 @@
 </header>
 
 <nav>
+    <a onclick="showSection('home')">Home</a>
     <a onclick="showSection('intro')">Introduction</a>
     <a onclick="showSection('education')">Education</a>
     <a onclick="showSection('experience')">Experience</a>
@@ -160,7 +167,12 @@
     <a onclick="showSection('awards')">Awards</a>
 </nav>
 
-<section id="intro" class="active">
+<!-- HOME SECTION -->
+<section id="home" class="active">
+    <h2>Welcome to the portfolio</h2>
+</section>
+
+<section id="intro">
     <h2>Introduction</h2>
     <p>
         Hello! I am Md. Ashraful Islam Anas, a Computer Science and Engineering student at Green University of Bangladesh. I am passionate about learning and exploring different areas of computer science, including programming, web development, and emerging technologies. I enjoy working on projects that help me improve my problem-solving skills and deepen my understanding of how technology works in real-world applications.
