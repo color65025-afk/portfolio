@@ -22,7 +22,6 @@
             min-height: 100vh;
         }
 
-        /* BACKGROUND */
         body::before {
             content: "";
             position: fixed;
@@ -41,7 +40,6 @@
             padding: 40px 0;
         }
 
-        /* GLASS NAVBAR */
         nav {
             margin: 0 auto 20px;
             width: 90%;
@@ -70,7 +68,7 @@
             color: #F72585;
         }
 
-        /* GLASS SECTIONS */
+        /* FIXED SECTION */
         section {
             position: absolute;
             left: 50%;
@@ -92,13 +90,14 @@
             opacity: 0;
             pointer-events: none;
             transition: all 0.4s ease;
+
+            min-height: 320px; /* ✅ FIX */
         }
 
         section.active {
             opacity: 1;
             transform: translateX(-50%) translateY(0);
             pointer-events: auto;
-            position: relative;
         }
 
         h2 {
@@ -115,7 +114,6 @@
             border-radius: 8px;
         }
 
-        /* FOOTER */
         footer {
             position: fixed;
             bottom: 0;
